@@ -1,0 +1,16 @@
+{
+    "garage": "Garaje",
+    "impound": "Depósito",
+    "spawn_vehicle": "[E] Sacar vehículo",
+    "store_vehicle_text": "[E] Guardar vehículo",
+    "impound_text": "[E] Abrir depósito",
+    "no_vehicle_garage": "No hay vehículos disponibles.",
+    "no_vehicle_impound": "No hay vehículos en el depósito.",
+    "spawn_blocked": "El punto de aparición está bloqueado.",
+    "must_be_in_vehicle": "Debes estar dentro de un vehículo.",
+    "cannot_store": "No puedes guardar este vehículo.",
+    "vehicle_stored": "Vehículo guardado.",
+    "not_enough_money": "No tienes suficiente dinero. Necesitas %s$.",
+    "impound_fee": "Debes pagar %s$ para recuperar este vehículo.",
+    "invalid_vehicle_type": "Este garaje no acepta este tipo de vehículo."
+}

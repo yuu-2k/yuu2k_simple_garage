@@ -1,0 +1,16 @@
+{
+    "garage": "Garage",
+    "impound": "Abschlepphof",
+    "spawn_vehicle": "[E] Fahrzeug ausparken",
+    "store_vehicle_text": "[E] Fahrzeug einparken",
+    "impound_text": "[E] Abschlepphof öffnen",
+    "no_vehicle_garage": "Keine Fahrzeuge verfügbar.",
+    "no_vehicle_impound": "Keine Fahrzeuge im Abschlepphof.",
+    "spawn_blocked": "Der Spawnpunkt ist blockiert.",
+    "must_be_in_vehicle": "Du musst dich in einem Fahrzeug befinden.",
+    "cannot_store": "Dieses Fahrzeug kann nicht eingeparkt werden.",
+    "vehicle_stored": "Fahrzeug eingeparkt.",
+    "not_enough_money": "Du hast nicht genug Geld. Du benötigst %s$.",
+    "impound_fee": "Du musst %s$ bezahlen, um dieses Fahrzeug abzuholen.",
+    "invalid_vehicle_type": "Diese Garage akzeptiert diesen Fahrzeugtyp nicht."
+}

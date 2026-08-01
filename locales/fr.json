@@ -1,0 +1,16 @@
+{
+    "garage": "Garage",
+    "impound": "Fourrière",
+    "spawn_vehicle": "[E] Sortir un véhicule",
+    "store_vehicle_text": "[E] Ranger le véhicule",
+    "impound_text": "[E] Ouvrir la fourrière",
+    "no_vehicle_garage": "Aucun véhicule disponible.",
+    "no_vehicle_impound": "Aucun véhicule à la fourrière.",
+    "spawn_blocked": "Le point de sortie est occupé.",
+    "must_be_in_vehicle": "Vous devez être dans un véhicule.",
+    "cannot_store": "Vous ne pouvez pas ranger ce véhicule.",
+    "vehicle_stored": "Véhicule rangé.",
+    "not_enough_money": "Vous n'avez pas les %s$ nécessaires.",
+    "impound_fee": "Vous devez payer %s$ pour récupérer ce véhicule.",
+"invalid_vehicle_type": "Ce garage n'accepte pas ce type de véhicule."
+}

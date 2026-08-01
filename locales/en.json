@@ -1,0 +1,16 @@
+{
+    "garage": "Garage",
+    "impound": "Impound",
+    "spawn_vehicle": "[E] Retrieve Vehicle",
+    "store_vehicle_text": "[E] Store Vehicle",
+    "impound_text": "[E] Open Impound",
+    "no_vehicle_garage": "No vehicles available.",
+    "no_vehicle_impound": "No vehicles in the impound.",
+    "spawn_blocked": "The spawn point is blocked.",
+    "must_be_in_vehicle": "You must be inside a vehicle.",
+    "cannot_store": "You cannot store this vehicle.",
+    "vehicle_stored": "Vehicle stored.",
+    "not_enough_money": "You don't have enough money. You need %s$.",
+    "impound_fee": "You must pay %s$ to retrieve this vehicle.",
+    "invalid_vehicle_type": "This garage does not accept this type of vehicle."
+}
