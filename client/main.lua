@@ -30,8 +30,6 @@ end
 
 local function OpenVehicleList(state, title, garage, action)
     local vehicles = lib.callback.await('yuu2k_simple_garage:getVehicles', false, state, garage)
-    print(json.encode(vehicles))
-    print(#vehicles)
     if not vehicles or #vehicles == 0 then
         return lib.notify({
             title = title,
