@@ -53,7 +53,7 @@ Config.Marker = {
 Config.Zone = {
     ['Legion Square'] = {
         blip = 'garage', -- nil to turn off
-        types = {automobile = false, bike = true},
+        types = {automobile = true, bike = true},
         spawn = vec4(240.8169, -782.3262, 30.6054, 66.5994),
         points = {
             {
