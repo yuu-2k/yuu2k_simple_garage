@@ -150,18 +150,6 @@ CreateThread(function()
     end
 end)
 
-AddEventHandler('onResourceStop', function(resource)
-    if resource ~= GetCurrentResourceName() then
-        return
-    end
-
-    lib.hideTextUI()
-
-    for i = 1, #Points do
-        Points[i]:delete()
-    end
-end)
-
 RegisterNetEvent('yuu2k_simple_garage:storeVehicle', function(garage)
     local vehicle = GetVehiclePedIsIn(cache.ped, false)
     if vehicle == 0 then
