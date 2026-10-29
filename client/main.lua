@@ -72,6 +72,8 @@ Actions.impound = {
     end
 }
 
+local Points = {}
+
 CreateThread(function()
     for garageName, garage in pairs(Config.Zone) do
         if garage.blip then
@@ -86,55 +88,77 @@ CreateThread(function()
             EndTextCommandSetBlipName(blip)
         end
         for _, pointData in ipairs(garage.points) do
-            local point = lib.points.new({
-                coords = pointData.coords,
+            local coords = pointData.coords
+            local action = pointData.action
+            local markerId = pointData.marker
+            local garageId = garageName
+            local point = ESX.Point:new({
+                coords = coords,
                 distance = 10.0,
-                garage = garageName,
-                action = pointData.action,
-                marker = pointData.marker
+                enter = function()
+                    
+                end,
+                leave = function()
+                    lib.hideTextUI()
+                end,
+                inside = function(point)
+                    local actionData = Actions[action]
+                    if not actionData or not actionData.canInteract() then
+                        lib.hideTextUI()
+                        return
+                    end
+                    local marker = Config.Marker[markerId]
+                    DrawMarker(
+                        marker.type,
+                        coords.x,
+                        coords.y,
+                        coords.z - 1.0,
+                        0.0, 0.0, 0.0,
+                        0.0, 0.0, 0.0,
+                        marker.scale.x,
+                        marker.scale.y,
+                        marker.scale.z,
+                        marker.color.r,
+                        marker.color.g,
+                        marker.color.b,
+                        marker.color.a,
+                        marker.bobUpAndDown,
+                        marker.faceCamera,
+                        2,
+                        marker.rotate,
+                        nil,
+                        nil,
+                        false
+                    )
+                    if #(GetEntityCoords(cache.ped) - coords) > 2.0 then
+                        lib.hideTextUI()
+                        return
+                    end
+                    lib.showTextUI(actionData.text)
+                    if IsControlJustReleased(0, 38) then
+                        actionData.interact({
+                            garage = garageId,
+                            action = action,
+                            marker = markerId,
+                            coords = coords
+                        })
+                    end
+                end
             })
-            function point:nearby()
-                local actionData = Actions[self.action]
-                if not actionData or not actionData.canInteract() then
-                    lib.hideTextUI()
-                    return
-                end
-                local marker = Config.Marker[self.marker]
-                DrawMarker(
-                    marker.type,
-                    self.coords.x,
-                    self.coords.y,
-                    self.coords.z - 1.0,
-                    0.0, 0.0, 0.0,
-                    0.0, 0.0, 0.0,
-                    marker.scale.x,
-                    marker.scale.y,
-                    marker.scale.z,
-                    marker.color.r,
-                    marker.color.g,
-                    marker.color.b,
-                    marker.color.a,
-                    marker.bobUpAndDown,
-                    marker.faceCamera,
-                    2,
-                    marker.rotate,
-                    nil,
-                    nil,
-                    false
-                )
-                if self.currentDistance > 2.0 then
-                    lib.hideTextUI()
-                    return
-                end
-                lib.showTextUI(actionData.text)
-                if IsControlJustReleased(0, 38) then
-                    actionData.interact(self)
-                end
-            end
-            function point:onExit()
-                lib.hideTextUI()
-            end
+            Points[#Points + 1] = point
         end
+    end
+end)
+
+AddEventHandler('onResourceStop', function(resource)
+    if resource ~= GetCurrentResourceName() then
+        return
+    end
+
+    lib.hideTextUI()
+
+    for i = 1, #Points do
+        Points[i]:delete()
     end
 end)
 
