@@ -43,9 +43,7 @@ RegisterNetEvent('yuu2k_simple_garage:spawnVehicle', function(plate, garage, act
             end
             xPlayer.removeAccountMoney(impound.account, impound.price, 'test')
             if impound.society then
-                TriggerEvent('esx_addonaccount:getSharedAccount', 'society_police', function(account)
-                    account.addMoney(impound.price)
-                end)
+                -- Your code there
             end
         end
     end
