@@ -9,8 +9,8 @@ author 'Yuu2k'
 version '1.0.0'
 
 shared_script {
-    '@ox_lib/init.lua',
     '@es_extended/imports.lua',
+    '@ox_lib/init.lua',
     'shared.lua',
     'shared/*.lua',
 }
