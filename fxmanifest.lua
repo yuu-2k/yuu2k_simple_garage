@@ -3,8 +3,8 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-description 'Yuu2k Simple Garage'
-author 'Yuu2k'
+description 'Y Simple Garage'
+author 'yuu-Studio'
 
 version '1.0.0'
 

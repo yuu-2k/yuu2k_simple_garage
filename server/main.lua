@@ -1,4 +1,4 @@
-lib.callback.register('yuu2k_simple_garage:getVehicles', function(source, state, garage)
+lib.callback.register('y_simple_garage:getVehicles', function(source, state, garage)
     local xPlayer = ESX.Player(source)
     local vehicles = MySQL.query.await('SELECT * FROM owned_vehicles WHERE owner = ? AND stored = ?', { xPlayer.getIdentifier(), state })
     local filtered = {}
@@ -10,7 +10,7 @@ lib.callback.register('yuu2k_simple_garage:getVehicles', function(source, state,
     return filtered
 end)
 
-lib.callback.register('yuu2k_simple_garage:storeVehicle', function(source, properties)
+lib.callback.register('y_simple_garage:storeVehicle', function(source, properties)
     local source = source
     local xPlayer = ESX.Player(source)
     local vehicle = MySQL.single.await('SELECT * FROM owned_vehicles WHERE owner = ? AND plate = ?', { xPlayer.getIdentifier(), properties.plate })
@@ -21,7 +21,7 @@ lib.callback.register('yuu2k_simple_garage:storeVehicle', function(source, prope
     return true
 end)
 
-RegisterNetEvent('yuu2k_simple_garage:spawnVehicle', function(plate, garage, action)
+RegisterNetEvent('y_simple_garage:spawnVehicle', function(plate, garage, action)
     local source = source
     local xPlayer = ESX.Player(source)
     local identifier = xPlayer.getIdentifier()

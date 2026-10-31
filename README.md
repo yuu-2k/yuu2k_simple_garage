@@ -1,4 +1,4 @@
-# yuu2k_simple_garage
+# y_simple_garage
 
 A lightweight, modern and configurable garage system for FiveM.
 
@@ -34,7 +34,7 @@ A lightweight, modern and configurable garage system for FiveM.
 ensure ox_lib
 ensure oxmysql
 ensure es_extended
-ensure yuu2k_simple_garage
+ensure y_simple_garage
 ```
 
 ## Configuration

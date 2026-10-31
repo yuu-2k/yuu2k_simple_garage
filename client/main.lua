@@ -16,7 +16,7 @@ local function OpenVehicleMenu(title, vehicles, garage, action)
                         description = locale('spawn_blocked'),
                     })
                 end
-                TriggerServerEvent('yuu2k_simple_garage:spawnVehicle', vehicle.plate, garage, action)
+                TriggerServerEvent('y_simple_garage:spawnVehicle', vehicle.plate, garage, action)
             end
         }
     end
@@ -29,7 +29,7 @@ local function OpenVehicleMenu(title, vehicles, garage, action)
 end
 
 local function OpenVehicleList(state, title, garage, action)
-    local vehicles = lib.callback.await('yuu2k_simple_garage:getVehicles', false, state, garage)
+    local vehicles = lib.callback.await('y_simple_garage:getVehicles', false, state, garage)
     if not vehicles or #vehicles == 0 then
         return lib.notify({
             title = title,
@@ -58,7 +58,7 @@ Actions.store = {
     end,
     text = locale('store_vehicle_text'),
     interact = function(point)
-        TriggerEvent('yuu2k_simple_garage:storeVehicle', point.garage)
+        TriggerEvent('y_simple_garage:storeVehicle', point.garage)
     end
 }
 
@@ -138,7 +138,7 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent('yuu2k_simple_garage:storeVehicle', function(garage)
+RegisterNetEvent('y_simple_garage:storeVehicle', function(garage)
     local vehicle = GetVehiclePedIsIn(cache.ped, false)
     if vehicle == 0 then
         return lib.notify({
@@ -155,7 +155,7 @@ RegisterNetEvent('yuu2k_simple_garage:storeVehicle', function(garage)
         })
     end
     local properties = lib.getVehicleProperties(vehicle)
-    local success = lib.callback.await('yuu2k_simple_garage:storeVehicle', false, properties)
+    local success = lib.callback.await('y_simple_garage:storeVehicle', false, properties)
     if not success then
         return lib.notify({
             title = locale('garage'),
